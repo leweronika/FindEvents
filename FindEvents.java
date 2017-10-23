@@ -178,6 +178,7 @@ public class FindEvents {
      int xCoordinate = ThreadLocalRandom.current().nextInt(-10, 10 + 1);
      int yCoordinate = ThreadLocalRandom.current().nextInt(-10, 10 + 1);
      xYLabel = xCoordinate + "" + yCoordinate + "";
+     //check if coordinate already has an event, repeat random selection if true
      for (int n = 0; n < eventNo; n++) {
       if (xYLabel == coordinatesOfEvents[n])
        repeatedCoordinate = true;
@@ -195,10 +196,10 @@ public class FindEvents {
      //generate random prices between $0.99 and %1000
      double ticketValue = ThreadLocalRandom.current().nextDouble(0.99, 1000.0 + 1.0);
      tickets.add(ticketValue);
-    }
+    }//end for
     //store values in HashMap
     eventInfo.put(coordinatesOfEvents[r], tickets);
-   }
+   }//end for to generate tickets
 
    //initialise map to hold returned method values
    Map < Double, List < Double >> returnedTicket;
@@ -228,7 +229,7 @@ public class FindEvents {
     else
      System.out.printf("Event %03.0f - $%.2f, Distance %.2f\n", returnedTicket.get(itr.next()).get(0), returnedTicket.get(itr.next()).get(1), itr.next());
     number++;
-   }
+   }//end while to print out results
 
   } //main
 
