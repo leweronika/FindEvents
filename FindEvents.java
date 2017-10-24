@@ -55,7 +55,7 @@ public class FindEvents {
 		queue.add(s);
 
 		while ((queue.size() != 0)) {
-			// Dequeue a vertex from queue and print it
+		  	// Dequeue a vertex from queue and print it
 			s = queue.poll();
 			//check if event exists at node, if no move on
 			if (event.get(s.getLabel()) != null) {
@@ -68,7 +68,7 @@ public class FindEvents {
 					//are lower values
 					for (int k = 1; k < event.get(s.getLabel()).size(); k++) {
 						if (lowestTicket > event.get(s.getLabel()).get(k))
-              lowestTicket = event.get(s.getLabel()).get(k);
+              					  lowestTicket = event.get(s.getLabel()).get(k);
 					} //end for
 				} //end if exists event
 				//else mark lowestTicket = 0 to denote that there are no tickets
@@ -108,7 +108,7 @@ public class FindEvents {
 		return treeMap;
 	} //end BFS
 
-	/**
+  /**
   * Main method, initialises a node graph of vertices using axis of -10 to 10, and
   * add the appropriate edges for each node. Generate random data to populate
   * the graph. Print out five closest results if they exist from treeMap
@@ -195,7 +195,7 @@ public class FindEvents {
 					//check if coordinate already has an event, repeat random selection if true
 					for (int n = 0; n < eventNo; n++) {
 						if (xYLabel == coordinatesOfEvents[n])
-              repeatedCoordinate = true;
+              					  repeatedCoordinate = true;
 					} //end for
 				} //end while
 				coordinatesOfEvents[m] = xYLabel;
@@ -230,17 +230,17 @@ public class FindEvents {
 			//set limit to print out closest five events, or if there are fewer than 5
 			//events print all
 			if (check <= 5)
-        limit = check;
+        		  limit = check;
 			else
-        limit = 5;
+        		  limit = 5;
 
 			//print results
 			System.out.printf("Closest Events to (%d,%d):\n", inputX, inputY);
 			while (itr.hasNext() && (number < limit)) {
 				if (returnedTicket.get(itr.next()).get(1) == 0)
-          System.out.printf("Event %03.0f - %s, Distance %.2f\n", returnedTicket.get(itr.next()).get(0), "No Tickets Available", itr.next());
+          			  System.out.printf("Event %03.0f - %s, Distance %.2f\n", returnedTicket.get(itr.next()).get(0), "No Tickets Available", itr.next());
 				else
-          System.out.printf("Event %03.0f - $%.2f, Distance %.2f\n", returnedTicket.get(itr.next()).get(0), returnedTicket.get(itr.next()).get(1), itr.next());
+         			  System.out.printf("Event %03.0f - $%.2f, Distance %.2f\n", returnedTicket.get(itr.next()).get(0), returnedTicket.get(itr.next()).get(1), itr.next());
 
 				number++;
 			} //end while to print out results
