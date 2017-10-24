@@ -204,7 +204,8 @@ public class FindEvents {
 			for (int r = 0; r < eventNo; r++) {
 				List < Double > tickets = new ArrayList < Double > ();
 				tickets.add((double) r);
-				int noOfTickets = ThreadLocalRandom.current().nextInt(0, eventNo + 1);
+				//generate random number of tickets between 0 and 100
+				int noOfTickets = ThreadLocalRandom.current().nextInt(0, 100 + 1);
 				for (int p = 0; p < noOfTickets; p++) {
 					//generate random prices between $0.99 and $1000
 					double ticketValue = ThreadLocalRandom.current().nextDouble(0.99, 1000.0 + 1.0);
